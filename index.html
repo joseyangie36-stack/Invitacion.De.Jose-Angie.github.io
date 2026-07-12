@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose & Angie - Nuestra Boda</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- FANCYBOX CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #faf6f2;
+    color: #4a3f3a;
+    overflow-x: hidden;
+}
+
+/* INTRO */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #f8f0ea 0%, #e8ddd4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease;
+}
+
+#intro.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-box {
+    text-align: center;
+    padding: 40px;
+    animation: pulseIntro 2s ease-in-out infinite;
+}
+
+@keyframes pulseIntro {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.intro-box h2 {
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: #9b8068;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.intro-box h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 90px;
+    color: #7a6553;
+    margin: 10px 0 30px;
+    text-shadow: 2px 2px 20px rgba(123, 101, 83, 0.2);
+}
+
+.intro-box p {
+    color: #9b8068;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* BOTONES - COLOR #E35336 */
+.abrir, .btn {
+    background: linear-gradient(135deg, #E35336, #c9452a);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 83, 54, 0.4);
+    letter-spacing: 1px;
+}
+
+.abrir:hover, .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(227, 83, 54, 0.5);
+    background: linear-gradient(135deg, #f05a3c, #d94a2e);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+                url('fondojye.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero-content {
+    background: rgba(245, 245, 220, 0.50);
+    padding: 50px 60px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 100%;
+}
+
+.hero-content h3 {
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: #75461d;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 100px;
+    color: #7a6553;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.hero-content .fecha {
+    font-weight: 300;
+    color: #6b5d53;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.hero-content .versiculo {
+    margin-top: 30px;
+    font-style: italic;
+    color: #866243;
+}
+
+.hero-content .versiculo strong {
+    font-weight: 600;
+    color: #7a6553;
+    font-style: normal;
+}
+
+/* CONTADOR */
+#seccion-contador {
+    background: linear-gradient(135deg, #f8f0ea, #eee5dc);
+    padding: 80px 10%;
+    text-align: center;
+}
+
+#seccion-contador .icono-tiempo {
+    font-size: 36px;
+    color: #b89a82;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.6;
+}
+
+#seccion-contador h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: #7a6553;
+    margin-bottom: 15px;
+}
+
+#seccion-contador .sub {
+    color: #9b8068;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+#contador {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 20px;
+    min-width: 100px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.box h2 {
+    font-size: 42px;
+    color: #7a6553;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box span {
+    font-size: 13px;
+    color: #9b8068;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* TÍTULOS */
+.titulo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #7a6553;
+    font-weight: 400;
+}
+
+section {
+    padding: 100px 10%;
+}
+
+/* CARDS */
+.card, .busqueda {
+    background: #fff;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #7a6553;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #6b5d53;
+    line-height: 1.8;
+}
+
+/* HISTORIA - FUENTE CURSIVA TAMAÑO GRANDE */
+.historia {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    font-family: 'Great Vibes', cursive;
+    font-size: 34px;
+    color: #6b5d53;
+    line-height: 2.2;
+    font-weight: 400;
+}
+
+/* REPRODUCTOR DE MÚSICA */
+.reproductor-musica {
+    background: linear-gradient(135deg, #f8f0ea, #eee5dc);
+    padding: 50px;
+    border-radius: 30px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.reproductor-musica .icono-musica {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+    opacity: 0.5;
+    color: #7a6553;
+    letter-spacing: 4px;
+}
+
+.reproductor-musica h3 {
+    color: #7a6553;
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.reproductor-musica p {
+    color: #9b8068;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-musica {
+    background: linear-gradient(135deg, #E35336, #c9452a);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 83, 54, 0.4);
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-musica:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(227, 83, 54, 0.5);
+    background: linear-gradient(135deg, #f05a3c, #d94a2e);
+}
+
+.btn-musica.playing {
+    animation: pulseBtn 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseBtn {
+    0%, 100% { box-shadow: 0 4px 15px rgba(227, 83, 54, 0.4); }
+    50% { box-shadow: 0 4px 40px rgba(227, 83, 54, 0.6); }
+}
+
+/* ONDAS DE MÚSICA */
+.ondas {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.onda {
+    width: 4px;
+    background: #b89a82;
+    border-radius: 4px;
+    height: 12px;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+}
+
+.onda.activa {
+    animation: ondaAnim 0.8s ease-in-out infinite alternate;
+    opacity: 0.8;
+}
+
+.onda.activa:nth-child(1) { animation-delay: 0s; height: 16px; }
+.onda.activa:nth-child(2) { animation-delay: 0.2s; height: 32px; }
+.onda.activa:nth-child(3) { animation-delay: 0.4s; height: 22px; }
+.onda.activa:nth-child(4) { animation-delay: 0.1s; height: 38px; }
+.onda.activa:nth-child(5) { animation-delay: 0.3s; height: 26px; }
+.onda.activa:nth-child(6) { animation-delay: 0.5s; height: 16px; }
+.onda.activa:nth-child(7) { animation-delay: 0.15s; height: 32px; }
+
+@keyframes ondaAnim {
+    0% { transform: scaleY(0.6); }
+    100% { transform: scaleY(1); }
+}
+
+/* GALERÍA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.galeria a {
+    display: block;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.galeria img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.5s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(155, 128, 104, 0.25);
+}
+
+/* CONFIRMACIÓN */
+.busqueda input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #eee5dc;
+    border-radius: 15px;
+    margin: 15px 0;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.busqueda input:focus {
+    outline: none;
+    border-color: #E35336;
+}
+
+.resultado, .error {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.resultado {
+    background: #f0e8e0;
+    color: #7a6553;
+}
+
+.error {
+    background: #fce4e4;
+    color: #c0392b;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f0ea, #eee5dc);
+}
+
+footer h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 70px;
+    color: #7a6553;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #9b8068;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* ANIMACIONES SCROLL */
+.animar {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CORAZONES FLOTANTES */
+.corazon {
+    position: fixed;
+    color: rgba(155, 128, 104, 0.08);
+    font-size: 18px;
+    animation: flotar 6s ease-in infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes flotar {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .intro-box h1 { font-size: 60px; }
+    .hero-content { padding: 30px 25px; }
+    .hero-content h1 { font-size: 60px; }
+    .titulo { font-size: 40px; }
+    section { padding: 60px 5%; }
+    .box { min-width: 70px; padding: 15px 20px; }
+    .box h2 { font-size: 32px; }
+    .galeria img { height: 200px; }
+    footer h2 { font-size: 50px; }
+    .reproductor-musica { padding: 30px 20px; }
+    .reproductor-musica .icono-musica { font-size: 32px; }
+    .btn-musica { padding: 14px 30px; font-size: 16px; }
+    #seccion-contador { padding: 60px 5%; }
+    #seccion-contador h2 { font-size: 36px; }
+    #seccion-contador .icono-tiempo { font-size: 28px; }
+    .historia { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+    .intro-box h1 { font-size: 45px; }
+    .hero-content h1 { font-size: 45px; }
+    .abrir, .btn { padding: 14px 30px; font-size: 14px; }
+    .box { min-width: 55px; padding: 12px 15px; }
+    .box h2 { font-size: 24px; }
+    .reproductor-musica h3 { font-size: 24px; }
+    #seccion-contador h2 { font-size: 30px; }
+    .historia { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+    <div class="intro-box">
+        <h2>Invitación de Boda</h2>
+        <h1>Jose & Angie</h1>
+        <p>16 de Agosto de 2026</p>
+        <button class="abrir" onclick="abrirInvitacion()">Abrir Invitación</button>
+    </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="musica" loop preload="auto">
+    <source src="Enamorados - Tercer Cielo - Video de letras oficial.mp3" type="audio/mpeg">
+    <source src="C:/Users/andres/Downloads/Enamorados - Tercer Cielo - Video de letras oficial.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h3>¡Queremos celebrarlo contigo!</h3>
+        <h1>Jose & Angie</h1>
+        <p class="fecha">16 de Agosto de 2026 - 7:00 PM</p>
+        <p class="versiculo">
+            "La cuerda de tres hilos no se rompe fácilmente"<br>
+            <strong>Eclesiastés 4:12</strong>
+        </p>
+    </div>
+</section>
+
+<!-- REPRODUCTOR DE MÚSICA -->
+<section id="musica-section" class="animar">
+    <div class="reproductor-musica">
+        <span class="icono-musica">♫</span>
+        <h3>Nuestra Canción</h3>
+        <p>Dale play y acompaña este momento especial</p>
+        
+        <div class="ondas" id="ondasMusica">
+            <div class="onda" id="onda1"></div>
+            <div class="onda" id="onda2"></div>
+            <div class="onda" id="onda3"></div>
+            <div class="onda" id="onda4"></div>
+            <div class="onda" id="onda5"></div>
+            <div class="onda" id="onda6"></div>
+            <div class="onda" id="onda7"></div>
+        </div>
+        
+        <button class="btn-musica" id="btnMusicaSeccion" onclick="toggleMusicSeccion()">
+            <span id="btnIcono">▶</span> Reproducir Canción
+        </button>
+        <p style="margin-top:15px; font-size:12px; color:#b89a82;">"Enamorado" — Tercer cielo</p>
+    </div>
+</section>
+
+<!-- CONTADOR -->
+<section id="seccion-contador" class="animar">
+    <span class="icono-tiempo">⌛</span>
+    <h2>Faltan</h2>
+    <p class="sub">Para el día más especial de nuestras vidas</p>
+    <div id="contador"></div>
+</section>
+
+<!-- HISTORIA - FUENTE CURSIVA TAMAÑO GRANDE -->
+<section id="historia" class="animar">
+    <h2 class="titulo">Nuestra Historia</h2>
+    <div class="historia">
+        <p>La historia comienza cuando dos personas, que ni soñaban conocerse, terminan encontrándose en el instante menos esperado pero en el momento indicado. Dios hizo posible que nos encontráramos y unió nuestras vidas en una sola.</p>
+        <p style="margin-top:20px;">Después de tantos años juntos, donde hemos vivido risas, llantos, aprendizajes y momentos inolvidables, hoy elegimos caminar juntos para siempre, con Jesús como centro de nuestra vida.</p>
+        <p style="margin-top:20px;">Bajo la perfecta gracia de Dios, tenemos el honor de invitarles a la celebración de nuestro matrimonio. Ante la presencia del Señor y de nuestros seres queridos, uniremos nuestras vidas en un pacto eterno.</p>
+    </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion" class="animar">
+    <h2 class="titulo">Ceremonia</h2>
+    <div class="card">
+        <h3>CFC La Esmeralda</h3>
+        <p>71b, Cra. 13 #263, Barranquilla, Atlántico</p>
+        <p style="margin:15px 0;"><strong>16 de Agosto de 2026</strong><br>7:00 PM</p>
+        <a class="btn" target="_blank" href="https://maps.app.goo.gl/4BTGiM13JiNYqhL5A">Ver Ubicación</a>
+    </div>
+</section>
+
+<!-- VESTIMENTA -->
+<section id="vestimenta" class="animar">
+    <h2 class="titulo">Código de Vestimenta</h2>
+    <div class="card" style="max-width: 650px; padding: 45px 40px;">
+        <p style="font-size: 12px; color: #b89a82; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; text-align: center; margin-bottom: 5px;">Código de Vestimenta</p>
+        <p style="font-size: 20px; color: #4a3f3a; font-weight: 300; text-align: center; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 30px;">ELEGANTE</p>
+        
+        <div style="display: flex; justify-content: center; gap: 60px; margin: 10px 0 30px 0; flex-wrap: wrap;">
+            <div style="text-align: center;">
+                <img src="codigovest.webp" alt="Caballero elegante" style="width: 220px; height: 220px; object-fit: contain; margin-bottom: 40px;">
+            </div>
+        </div>
+        
+        <div style="width: 50px; height: 1px; background: #ddd; margin: 0 auto 25px;"></div>
+        
+        <div style="text-align: center;">
+            <p style="font-size: 14px; color: #7a6553; font-weight: 400; line-height: 1.8;">
+                 Por favor, no asistir con colores 
+                <span style="font-weight: 600;">blanco</span>, 
+                <span style="font-weight: 600;">beige</span> y 
+                <span style="font-weight: 600;">terracota</span>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- REGALOS - FUENTE CURSIVA -->
+<section id="regalos" class="animar">
+    <h2 class="titulo">Regalos</h2>
+    <div class="card" style="max-width: 650px; padding: 50px 45px;">
+        <div style="width: 60px; height: 2px; background: #b89a82; margin: 0 auto 15px;"></div>
+        
+        <h3 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #7a6553; margin-bottom: 25px; font-weight: 400;">
+            Lluvia de Sobres
+        </h3>
+        
+        <p style="font-family: 'Great Vibes', cursive; font-size: 28px; color: #6b5d53; line-height: 2.2; text-align: center; max-width: 520px; margin: 0 auto;">
+            Nos sentimos profundamente bendecidos por contar con el cariño, la compañía y el apoyo de personas tan especiales como tú. Tu presencia en este día es el regalo más valioso que podríamos recibir. Gracias por acompañarnos y ser parte de nuestra historia.
+        </p>
+        
+        <div style="margin: 30px 0;">
+            <svg width="100" height="80" viewBox="0 0 100 80" style="opacity: 0.4; display: block; margin: 0 auto;">
+                <rect x="5" y="10" width="90" height="60" rx="3" fill="none" stroke="#b89a82" stroke-width="2"/>
+                <polyline points="5,10 50,45 95,10" fill="none" stroke="#b89a82" stroke-width="2"/>
+                <polyline points="5,70 35,50" fill="none" stroke="#b89a82" stroke-width="1.5" opacity="0.5"/>
+                <polyline points="95,70 65,50" fill="none" stroke="#b89a82" stroke-width="1.5" opacity="0.5"/>
+                <line x1="50" y1="45" x2="50" y2="70" stroke="#b89a82" stroke-width="1.5" opacity="0.3"/>
+            </svg>
+        </div>
+        <div style="width: 40px; height: 1px; background: #ddd; margin: 30px auto 20px;"></div>
+        <p style="font-size: 48px; color: #7a6553; font-weight: 400; font-family: 'Great Vibes', cursive;">Te esperamos</p>
+    </div>
+</section>
+
+<!-- GALERÍA CON FANCYBOX -->
+<section id="galeria" class="animar">
+    <h2 class="titulo">Galería</h2>
+    <div class="galeria">
+        <a href="1.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="1.jpeg">
+        </a>
+        <a href="3.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="3.jpeg" alt=>
+        </a>
+        <a href="4.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="4.jpeg">
+        </a>
+        <a href="5.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="5.jpeg">
+        </a>
+        <a href="6.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="6.jpeg">
+        </a>
+        <a href="7.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="7.jpeg">
+        </a>
+        <a href="8.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="8.jpeg">
+        </a>
+        <a href="9.jpeg" data-fancybox="galeria" data-caption=>
+            <img src="9.jpeg">
+        </a>
+    </div>
+</section>
+
+<!-- BUSCADOR DE MESA -->
+<section class="animar">
+    <h2 class="titulo">Consulta tu Mesa</h2>
+    <div class="busqueda">
+        <p style="color:#9b8068; margin-bottom:10px;">Ingresa tu nombre (primer nombre y primer apellido)</p>
+        <input type="text" id="nombreInvitado" placeholder="Ej: Carlos Perez">
+        <button class="abrir" onclick="buscarInvitado()">Buscar</button>
+        <div id="resultado" class="resultado"></div>
+        <div id="error" class="error">Invitado no encontrado. Por favor, verifica tu nombre.</div>
+    </div>
+</section>
+
+<!-- CONFIRMAR ASISTENCIA -->
+<section id="confirmacion" class="animar">
+    <h2 class="titulo">Confirmar Asistencia</h2>
+    <div class="card">
+        <p style="margin-bottom:20px;">Confirma tu asistencia vía WhatsApp para ayudarnos con la organización</p>
+        <a class="btn" href="https://wa.me/573042146403?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jose%20y%20Angie" target="_blank">Confirma con la novia</a>
+         <a class="btn" href="https://wa.me/573003244468?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jose%20y%20Angie" target="_blank">Confirma con el novio</a>
+        <p style="margin-top:20px; font-size:14px; color:#9b8068;">Te esperamos con mucha alegría</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>Jose & Angie</h2>
+    <p>Te esperamos</p>
+    <p style="margin-top:20px; font-size:12px; color:#b89a82;">16 de Agosto de 2026</p>
+</footer>
+
+<!-- JQUERY (necesario para Fancybox) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- FANCYBOX JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script>
+let musicaReproduciendo = false;
+
+// ABRIR INVITACIÓN
+function abrirInvitacion() {
+    document.getElementById('intro').classList.add('oculto');
+    const audio = document.getElementById('musica');
+    audio.play().catch(function(e) {
+        console.log('Autoplay bloqueado, el usuario debe hacer clic en play');
+    });
+}
+
+// CONTROL DE MÚSICA
+function toggleMusicSeccion() {
+    const audio = document.getElementById('musica');
+    const btn = document.getElementById('btnMusicaSeccion');
+    const ondas = document.querySelectorAll('.onda');
+    
+    if (musicaReproduciendo) {
+        audio.pause();
+        btn.innerHTML = '<span id="btnIcono">▶</span> Reproducir Canción';
+        btn.classList.remove('playing');
+        ondas.forEach(onda => onda.classList.remove('activa'));
+        musicaReproduciendo = false;
+    } else {
+        audio.play().then(function() {
+            btn.innerHTML = '<span id="btnIcono">⏸</span> Pausar Canción';
+            btn.classList.add('playing');
+            ondas.forEach(onda => onda.classList.add('activa'));
+            musicaReproduciendo = true;
+        }).catch(function(e) {
+            alert('⚠️ No se pudo reproducir la canción. Verifica que el archivo de música esté en la carpeta correcta.');
+            console.log('Error al reproducir:', e);
+        });
+    }
+}
+
+// CONTADOR
+const fecha = new Date('August 16, 2026 19:00:00').getTime();
+setInterval(() => {
+    const ahora = new Date().getTime();
+    const d = fecha - ahora;
+    if (d > 0) {
+        const dias = Math.floor(d / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const min = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        const seg = Math.floor((d % (1000 * 60)) / 1000);
+        document.getElementById('contador').innerHTML = `
+            <div class='box'><h2>${dias}</h2><span>Días</span></div>
+            <div class='box'><h2>${horas}</h2><span>Horas</span></div>
+            <div class='box'><h2>${min}</h2><span>Min</span></div>
+            <div class='box'><h2>${seg}</h2><span>Seg</span></div>
+        `;
+    }
+}, 1000);
+
+// FUNCIÓN PARA NORMALIZAR TEXTO
+function normalizarTexto(texto) {
+    return texto.toLowerCase()
+        .replace(/á/g, 'a')
+        .replace(/é/g, 'e')
+        .replace(/í/g, 'i')
+        .replace(/ó/g, 'o')
+        .replace(/ú/g, 'u')
+        .replace(/ñ/g, 'n')
+        .replace(/ü/g, 'u')
+        .trim();
+}
+
+// TODOS LOS INVITADOS CON SUS MESAS
+const invitados = [
+    { nombre: 'edilia lopez', mesa: '1', cupo: '2' },
+    { nombre: 'jairo ariza lopez', mesa: '1', cupo: '4' },
+    { nombre: 'jhon ariza', mesa: '1', cupo: '2' },
+    { nombre: 'katherine sarco', mesa: '2', cupo: '2' },
+    { nombre: 'maria camila', mesa: '2', cupo: '2' },
+    { nombre: 'johana ariza', mesa: '2', cupo: '3' },
+    { nombre: 'vanesa ariza', mesa: '2', cupo: '2' },
+    { nombre: 'eleana fuente', mesa: '2', cupo: '2' },
+    { nombre: 'aleidy fuente', mesa: '2', cupo: '2' },
+    { nombre: 'nuris de la hoz', mesa: '3', cupo: '3' },
+    { nombre: 'lucindi rivera', mesa: '3', cupo: '4' },
+    { nombre: 'jeison', mesa: '3', cupo: '2' },
+    { nombre: 'yuliana sarmiento', mesa: '3', cupo: '2' },
+    { nombre: 'tomas de la hoz', mesa: '4', cupo: '2' },
+    { nombre: 'luz marina de la hoz', mesa: '4', cupo: '1' },
+    { nombre: 'malbe de la hoz', mesa: '4', cupo: '1' },
+    { nombre: 'michell marin', mesa: '4', cupo: '0' },
+    { nombre: 'johanna marin', mesa: '4', cupo: '0' },
+    { nombre: 'nubia marin', mesa: '4', cupo: '2' },
+    { nombre: 'yisela de la hoz', mesa: '4', cupo: '1' },
+    { nombre: 'esther ferrer', mesa: '4', cupo: '1' },
+    { nombre: 'eduardo duque', mesa: '5', cupo: '2' },
+    { nombre: 'manuel rivera', mesa: '5', cupo: '2' },
+    { nombre: 'yuris rivera', mesa: '5', cupo: '1' },
+    { nombre: 'dalvis ferrer', mesa: '5', cupo: '3' },
+    { nombre: 'lisbeth sandoval', mesa: '5', cupo: '2' },
+    { nombre: 'dionis velez', mesa: '5', cupo: '1' },
+    { nombre: 'simona celis', mesa: '6', cupo: '3' },
+    { nombre: 'laura duque', mesa: '6', cupo: '4' },
+    { nombre: 'mayra', mesa: '6', cupo: '3' },
+    { nombre: 'ruben hernandez', mesa: '6', cupo: '1' },
+    { nombre: 'lilibeth escorcia', mesa: '6', cupo: '1' },
+    { nombre: 'osvaldo berthel', mesa: '7', cupo: '2' },
+    { nombre: 'jesus piñeres', mesa: '7', cupo: '2' },
+    { nombre: 'santander piñeres', mesa: '7', cupo: '2' },
+    { nombre: 'jair cervantes', mesa: '8', cupo: '2' },
+    { nombre: 'lesbia romero', mesa: '8', cupo: '1' },
+    { nombre: 'maria castro', mesa: '8', cupo: '1' },
+    { nombre: 'argelio Estrada', mesa: '8', cupo: '2' },
+    { nombre: 'vivian restan', mesa: '9', cupo: '2' },
+    { nombre: 'astrid sarmiento', mesa: '9', cupo: '2' },
+    { nombre: 'daniel campo', mesa: '9', cupo: '1' },
+    { nombre: 'karen arrieta', mesa: '9', cupo: '1' },
+    { nombre: 'yisela epalza', mesa: '9', cupo: '1' },
+    { nombre: 'cindy ortiz', mesa: '9', cupo: '1' },
+    { nombre: 'greys daza', mesa: '9', cupo: '1' },
+    { nombre: 'jorge calderón', mesa: '9', cupo: '1' },
+    { nombre: 'gilberto muñón', mesa: '9', cupo: '1' },
+    { nombre: 'leonardo muñón', mesa: '9', cupo: '1' },
+    { nombre: 'stefanny muñón', mesa: '9', cupo: '1' }
+];
+
+function buscarInvitado() {
+    const input = document.getElementById('nombreInvitado');
+    const nombreBuscado = normalizarTexto(input.value);
+    const resultado = document.getElementById('resultado');
+    const error = document.getElementById('error');
+    
+    if (!nombreBuscado) {
+        error.style.display = 'block';
+        resultado.style.display = 'none';
+        error.textContent = '⚠️ Por favor, escribe un nombre.';
+        return;
+    }
+    
+    const encontrado = invitados.find(invitado => {
+        const nombreNormalizado = normalizarTexto(invitado.nombre);
+        return nombreNormalizado.includes(nombreBuscado);
+    });
+    
+    if (encontrado) {
+        resultado.style.display = 'block';
+        error.style.display = 'none';
+        resultado.innerHTML = `
+            <h3 style="color:#7a6553;">✅ ${encontrado.nombre}</h3>
+            <p><strong>Mesa:</strong> ${encontrado.mesa}</p>
+            <p><strong>Cupo:</strong> ${encontrado.cupo}</p>
+        `;
+    } else {
+        error.style.display = 'block';
+        resultado.style.display = 'none';
+        error.textContent = '❌ Invitado no encontrado. Por favor, verifica tu nombre.';
+    }
+}
+
+// ANIMACIÓN SCROLL
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('.animar').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            el.classList.add('visible');
+        }
+    });
+});
+
+// CORAZONES FLOTANTES
+function crearCorazon() {
+    const corazon = document.createElement('div');
+    corazon.className = 'corazon';
+    corazon.textContent = ['♥', '♡', '✧', '✦', '❋'][Math.floor(Math.random() * 5)];
+    corazon.style.left = Math.random() * 100 + '%';
+    corazon.style.fontSize = (14 + Math.random() * 20) + 'px';
+    corazon.style.animationDuration = (5 + Math.random() * 8) + 's';
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 10000);
+}
+
+setInterval(crearCorazon, 2000);
+
+// ANIMACIÓN AL CARGAR
+window.addEventListener('load', () => {
+    document.querySelectorAll('.animar').forEach((el, i) => {
+        setTimeout(() => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        }, i * 200);
+    });
+});
+</script>
+</body>
+</html>
